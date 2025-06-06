@@ -53,25 +53,6 @@ function updatePriceDisplay() {
     const container = document.getElementById('price-container');
     if (!container) return;
 
-    // Add the animation style if it doesn't exist
-    if (!document.getElementById('blink-animation')) {
-        const style = document.createElement('style');
-        style.id = 'blink-animation';
-        style.textContent = `
-            @keyframes blinkBorder {
-                0% { border: 2px solid #00ff00; }
-                50% { border: 2px solid transparent; }
-                100% { border: 2px solid #00ff00; }
-            }
-            .highlight-closest {
-                animation: blinkBorder 1s infinite;
-                border-radius: 4px;
-                padding: 2px;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
     // Convert Map to array and sort by price
     const sortedPrices = Array.from(playerPrices.entries())
         .sort((a, b) => a[1] - b[1]);

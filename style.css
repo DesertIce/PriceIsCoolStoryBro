@@ -68,3 +68,15 @@ body {
 .price {
     color: #00ff00;
 }
+
+@keyframes blinkBorder {
+    0% { border: 2px solid #00ff00; }
+    50% { border: 2px solid transparent; }
+    100% { border: 2px solid #00ff00; }
+}
+
+.highlight-closest {
+    animation: blinkBorder 1s infinite;
+    border-radius: 4px;
+    padding: 2px;
+}
