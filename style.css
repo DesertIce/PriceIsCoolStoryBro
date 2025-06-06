@@ -1,0 +1,70 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.status-header {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    border-bottom: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.connection-status {
+    color: #ff4444;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.connection-status.connected {
+    color: #44ff44;
+    opacity: 1;
+}
+
+.connection-status.connected.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.status-content {
+    display: flex;
+    align-items: center;
+}
+
+#status-text {
+    font-weight: bold;
+    color: #ff4444;
+}
+
+#status-text.open {
+    color: #44ff44;
+}
+
+.price-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    margin: 4px 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+}
+
+.player-name {
+    font-weight: bold;
+}
+
+.price {
+    color: #00ff00;
+}
