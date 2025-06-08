@@ -79,7 +79,7 @@ function updateStatusDisplay() {
 async function TwitchChatMessage(data) {
     const message = data.message.message;
     const userName = data.message.username;
-    const command = message.split(' ')[0];
+    const command = message.split(' ')[0].toLowerCase();
 
     if (commands.has(command) && data.message.role >= 3) {
         if (command === '!openprice') {

@@ -61,6 +61,7 @@ body {
     min-width: 200px;
     flex: 0 1 auto;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .player-name {
@@ -80,14 +81,15 @@ body {
 .highlight-closest {
     animation: blinkBorder 1s infinite;
     border-radius: 10px;
-    width: 100% !important;
-    min-width: 100% !important;
-    flex: 1 1 100% !important;
+    width: calc(100% - 16px) !important;
+    min-width: calc(100% - 16px) !important;
+    flex: 1 1 calc(100% - 16px) !important;
     font-size: 1.5em;
     padding: 16px 24px;
     background: rgba(0, 0, 0, 0.9);
     margin: 8px 0;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    box-sizing: border-box;
 }
 
 .highlight-closest .player-name {
@@ -104,4 +106,6 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
