@@ -60,6 +60,7 @@ body {
     font-family: Arial, sans-serif;
     min-width: 200px;
     flex: 0 1 auto;
+    transition: all 0.3s ease;
 }
 
 .player-name {
@@ -71,14 +72,30 @@ body {
 }
 
 @keyframes blinkBorder {
-    0% { border: 2px solid #00ff00; }
-    50% { border: 2px solid transparent; }
-    100% { border: 2px solid #00ff00; }
+    0% { border: 3px solid #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); }
+    50% { border: 3px solid transparent; box-shadow: 0 0 10px rgba(0, 255, 0, 0.1); }
+    100% { border: 3px solid #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); }
 }
 
 .highlight-closest {
     animation: blinkBorder 1s infinite;
     border-radius: 10px;
+    width: 100% !important;
+    min-width: 100% !important;
+    flex: 1 1 100% !important;
+    font-size: 1.5em;
+    padding: 16px 24px;
+    background: rgba(0, 0, 0, 0.9);
+    margin: 8px 0;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.highlight-closest .player-name {
+    font-size: 1.2em;
+}
+
+.highlight-closest .price {
+    font-size: 1.2em;
 }
 
 #price-container {

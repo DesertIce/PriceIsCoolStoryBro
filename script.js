@@ -61,7 +61,7 @@ function updatePriceDisplay() {
     const html = sortedPrices.map(([name, price]) => `
         <div class="price-entry hover-effect">
             <span class="player-name">${name}</span>
-            <span class="price">$${price.toFixed(2)}</span>
+            <span class="price">$${price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
         </div>
     `).join('');
 
