@@ -59,7 +59,7 @@ function updatePriceDisplay() {
 
     // Create HTML string
     const html = sortedPrices.map(([name, price]) => `
-        <div class="price-entry">
+        <div class="price-entry hover-effect">
             <span class="player-name">${name}</span>
             <span class="price">$${price.toFixed(2)}</span>
         </div>

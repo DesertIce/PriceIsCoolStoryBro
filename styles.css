@@ -1,0 +1,45 @@
+.price-entry {
+    transition: all 0.3s ease;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.price-entry.hover-effect {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    z-index: 1000;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(1.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.price-entry .player-name {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.price-entry .price {
+    font-size: 1.4em;
+    color: #4CAF50;
+}
+
+.price-entry.highlight-closest {
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 2px solid #4CAF50;
+}
+
+#price-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+} 
