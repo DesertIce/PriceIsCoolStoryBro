@@ -79,3 +79,9 @@ body {
     animation: blinkBorder 1s infinite;
     border-radius: 10px;
 }
+
+#price-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
