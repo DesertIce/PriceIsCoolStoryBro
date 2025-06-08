@@ -98,24 +98,27 @@ async function TwitchChatMessage(data) {
 
             if (isValidDecimalInput(price)) {
                 const numericPrice = parseFloat(price.replace(/[$,]/g, ''));
-                let closestPlayer = null;
+                let closestPlayers = [];
                 let closestDiff = Infinity;
 
                 for (const [player, p] of playerPrices) {
                     const diff = numericPrice - p;
-                    if (diff >= 0 && diff < closestDiff) {
-                        closestPlayer = player;
-                        closestDiff = diff;
+                    if (diff >= 0) {
+                        if (diff < closestDiff) {
+                            closestPlayers = [player];
+                            closestDiff = diff;
+                        } else if (diff === closestDiff) {
+                            closestPlayers.push(player);
+                        }
                     }
                 }
 
-                if (closestPlayer) {
+                if (closestPlayers.length > 0) {
                     const priceEntries = document.querySelectorAll('.price-entry');
                     for (const entry of priceEntries) {
                         const playerNameElement = entry.querySelector('.player-name');
-                        if (playerNameElement && playerNameElement.textContent === closestPlayer) {
+                        if (playerNameElement && closestPlayers.includes(playerNameElement.textContent)) {
                             entry.classList.add('highlight-closest');
-                            break;
                         }
                     }
                 }
