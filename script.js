@@ -36,15 +36,14 @@ client.on('Twitch.ChatMessage', (response) => {
 let isAcceptingPrices = false;
 updateStatusDisplay();
 let playerPrices = new Map(); // Stores player names and their price guesses
-
 function isValidDecimalInput(input) {
-    const regex = /^\$?\d+(\.\d+)?$/;
+    const regex = /^\$?\d+(,\d+)?(\.\d+)?$/;
     return regex.test(input);
 }
 
 function addPlayerPrice(playerName, price) {
-    // Remove $ if present and convert to number
-    const numericPrice = parseFloat(price.replace('$', ''));
+    // Remove $ and commas if present and convert to number
+    const numericPrice = parseFloat(price.replace(/[$,]/g, ''));
     playerPrices.set(playerName, numericPrice);
     updatePriceDisplay();
 }
@@ -98,7 +97,7 @@ async function TwitchChatMessage(data) {
             const price = message.split(' ')[1];
 
             if (isValidDecimalInput(price)) {
-                const numericPrice = parseFloat(price.replace('$', ''));
+                const numericPrice = parseFloat(price.replace(/[$,]/g, ''));
                 let closestPlayer = null;
                 let closestDiff = Infinity;
 
