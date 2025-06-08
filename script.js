@@ -20,11 +20,11 @@ const client = new StreamerbotClient({
     }
 });
 
-const commands = Object.freeze(new Map([
-    ['!openprice', 'open'],
-    ['!closeprice', 'close'],
-    ['!clearprice', 'clear'],
-    ['!setprice', 'set']
+const commands = Object.freeze(new Set([
+    '!openprice',
+    '!closeprice',
+    '!clearprice',
+    '!setprice'
 ]));
 
 
@@ -55,7 +55,7 @@ function updatePriceDisplay() {
 
     // Convert Map to array and sort by price
     const sortedPrices = Array.from(playerPrices.entries())
-        .sort((a, b) => a[1] - b[1]);
+        .sort((a, b) => b[1] - a[1]);
 
     // Create HTML string
     const html = sortedPrices.map(([name, price]) => `
